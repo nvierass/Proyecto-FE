@@ -1,0 +1,53 @@
+.header {
+    background-color: $marvelBlack;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    &__image-wrapper {
+        margin: auto;
+        padding: 20px 0 ;
+        &__link {
+            img {
+                height: 60px;
+                width: auto;
+                max-width: 1200px;
+            }
+        }
+    }
+    &__navbar {
+        &__items {
+            display: flex;
+            flex-direction: row;
+            list-style-type: none;
+            &__item {
+                padding: 10px 50px;
+                text-align: center;
+                min-width: 100px;
+                &__link {
+                    font-size: $subtitleFontSize;
+                    font-weight: $subtitleFontWeight;
+                    color: $marvelWhite;
+                    text-decoration: none;
+                    opacity: 0.8;
+                    &:hover {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 768px){
+    .header {
+        &__navbar {
+            &__items {
+                display: flex;
+                flex-direction: column;
+                list-style-type: none;
+            }
+        }
+    }
+}

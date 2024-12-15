@@ -1,0 +1,26 @@
+.footer {
+    background-color: $marvelBlack;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    &__image-wrapper {
+        margin: auto;
+        &__link {
+            img {
+                height: 100px;
+                width: auto;
+                max-width: 1200px;
+            }
+        }
+    }
+    &__items {
+        padding: 20px 0;
+        text-align: center;
+        &__disclaimer {
+            color: $marvelGray; 
+            font-size: $textFontSize;
+            font-weight: $textFontSize;
+        }
+    }
+}
