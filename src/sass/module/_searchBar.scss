@@ -1,0 +1,43 @@
+.search-bar {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    gap: 10px; 
+    &__label {
+        font-size: $titleFontSize;
+        font-weight: $titleFontWeight;
+    }
+    &__input-wrapper {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        min-width: 300px;
+        height: 30px;
+        gap: 10px;
+        input {
+            border-radius: 10px;
+            border: 1px solid gray;
+            height: 100%;
+            width: 100%;
+            padding: 0 10px;
+            &:focus {
+                outline: none;
+            }
+        }
+        &__button{
+            all: unset;
+            &:hover{
+                cursor: pointer;
+            }
+        }
+    }
+    &__error-label{
+        font-size: $textFontSize;
+        font-weight: $textFontWeight;
+        color: $marvelRed;
+        opacity: 0.8;
+    }
+}

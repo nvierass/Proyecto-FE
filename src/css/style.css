@@ -25,21 +25,19 @@ span {
 
 #app {
   display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: repeat(1fr);
   grid-template-areas: "header" "main" "footer";
 }
 
 .header {
-  grid-area: "header";
+  grid-area: header;
 }
 
 .main {
-  grid-area: "main";
+  grid-area: main;
 }
 
 .footer {
-  grid-area: "footer";
+  grid-area: footer;
 }
 
 .header {
@@ -50,13 +48,20 @@ span {
   align-items: center;
 }
 .header__image-wrapper {
+  display: flex;
+  align-items: center;
   margin: auto;
   padding: 20px 0;
+  gap: 50px;
 }
 .header__image-wrapper__link img {
-  height: 60px;
+  height: 100px;
   width: auto;
   max-width: 1200px;
+}
+.header__image-wrapper__title {
+  font-size: 20px;
+  color: #FFFFFF;
 }
 .header__navbar__items {
   display: flex;
@@ -86,6 +91,10 @@ span {
     list-style-type: none;
   }
 }
+.main {
+  width: auto;
+}
+
 .footer {
   background-color: #000000;
   display: flex;
@@ -96,8 +105,8 @@ span {
 .footer__image-wrapper {
   margin: auto;
 }
-.footer__image-wrapper__link img {
-  height: 100px;
+.footer__image-wrapper img {
+  height: 200px;
   width: auto;
   max-width: 1200px;
 }
@@ -109,6 +118,50 @@ span {
   color: #767676;
   font-size: 16px;
   font-weight: 16px;
+}
+
+.search-bar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  gap: 10px;
+}
+.search-bar__label {
+  font-size: 20px;
+  font-weight: 500;
+}
+.search-bar__input-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  min-width: 300px;
+  height: 30px;
+  gap: 10px;
+}
+.search-bar__input-wrapper input {
+  border-radius: 10px;
+  border: 1px solid gray;
+  height: 100%;
+  width: 100%;
+  padding: 0 10px;
+}
+.search-bar__input-wrapper input:focus {
+  outline: none;
+}
+.search-bar__input-wrapper__button {
+  all: unset;
+}
+.search-bar__input-wrapper__button:hover {
+  cursor: pointer;
+}
+.search-bar__error-label {
+  font-size: 16px;
+  font-weight: 300;
+  color: #F0141E;
+  opacity: 0.8;
 }
 
 /*# sourceMappingURL=style.css.map */
