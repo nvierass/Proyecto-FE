@@ -1,9 +1,16 @@
 
+import SearchBar from "./searchBar";
+
 export default function Main({}){
+
+    const searchHandler = (query) => {
+        console.log("Trigger query:", query)
+
+    }
 
     return (
         <main className="main">
-            <p> Here goes the main</p>
+            <SearchBar searchCallback={searchHandler}/>
         </main>
      
     )

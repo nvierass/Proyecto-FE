@@ -6,12 +6,10 @@
     align-items: center;
     &__image-wrapper {
         margin: auto;
-        &__link {
-            img {
-                height: 100px;
-                width: auto;
-                max-width: 1200px;
-            }
+        img {
+            height: 200px;
+            width: auto;
+            max-width: 1200px;
         }
     }
     &__items {
