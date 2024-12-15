@@ -23,7 +23,7 @@ export default function SearchBar({searchCallback}) {
 
     return (
         <div className="search-bar">
-            <span className = "search-bar__label"> Busca obras de tus artistas favoritos! </span>
+            <span className = "search-bar__label"> ¡Aprende más sobre tus obras y artistas favoritos! </span>
             <div className = "search-bar__input-wrapper">
                 <input placeholder = "Van Gogh, Picasso, Dalí..." onChange={updateHandler}></input>
                 <button className = "search-bar__input-wrapper__button" type = "submit" onClick = {searchHandler}> 
