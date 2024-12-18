@@ -26,7 +26,7 @@ export default function Main({}){
             <section className="main__artworks-section">
                 {isSearchResult? 
                 <h1 className="main__artworks-section__title"> Resultados de la busqueda "{searchQuery}" </h1>:
-                <h1 className="main__artworks-section__title"> A continuación te presentamos una selección de obras destacadas</h1>
+                <h1 className="main__artworks-section__title"> A continuación puedes ver una selección de obras destacadas</h1>
                 }
                 <ul className="main__artworks-section__artworks-list">
                     {gallery.map((artwork, index) => 
