@@ -1,4 +1,4 @@
-const URL = "https://api.artic.edu/api/v1/artworks";
+const BASE_URL = "https://api.artic.edu/api/v1/artworks";
 
 function generateRandomOffset(){
     return getRandomInt(0, 100000);
@@ -8,21 +8,33 @@ function getRandomInt(minimum, maximum){
     return Math.floor(Math.random() * (maximum - minimum + 1) ) + minimum;
 }
 
-async function fetchArtworks(){
-    let offsetParam = "offset=0" + generateRandomOffset();
+async function fetchArtworks(offset = 0, searchQuery = null){
+    let offsetParam = "offset=" + offset;
     let fieldsParam = "&fields=id,title,image_id,description";
-    const response = await fetch(URL + "?" + offsetParam + fieldsParam);
+    const response = await fetch(BASE_URL + "?" + offsetParam + fieldsParam);
     const responseJson = await response.json();
-
-    return {data: responseJson.data, imageRepositoryInfo: responseJson.config}
+    return {rawData: responseJson, data: responseJson.data, imageRepositoryInfo: responseJson.config}
 }
 
-
+async function fetchArtworksByQuery(searchQuery){
+    let queryParam = "q="+searchQuery;
+    let fieldsParam = "&fields=id,title,image_id,description";
+    const response = await fetch(BASE_URL + "/search?" + queryParam + fieldsParam);
+    const responseJson = await response.json();
+    return {rawData: responseJson, data: responseJson.data, imageRepositoryInfo: responseJson.config}
+}
 
 export const getRandomArtworksGallery = async () => {
-    let artworksData = await fetchArtworks();
-    let artworkDataWithImages = buildArtworksImages(artworksData);
-    
+    let randomOffset = generateRandomOffset();
+    let artworksData = await fetchArtworks(randomOffset);
+    buildArtworksImages(artworksData);
+    return artworksData.data;
+}
+
+export const getQueryArtworksGallery = async (query) => {
+    let artworksData = await fetchArtworksByQuery(query);
+    buildArtworksImages(artworksData);
+    return artworksData.data;
 }
 
 function buildArtworksImages(artworksData){
@@ -31,9 +43,5 @@ function buildArtworksImages(artworksData){
     artworksData.data.forEach((artwork) => {
         artwork.image_url = IIIF_URL + "/" + artwork.image_id + IMAGE_FORMAT;
     });
-    console.log(artworksData.data)
+
 }
-
-
-const x = (await getRandomArtworksGallery())
-
