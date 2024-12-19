@@ -3,7 +3,7 @@ import SearchBar from "./SearchBar";
 import { getRandomArtworksGallery, getQueryArtworksGallery } from "../service/ArtworkApiTransactions";
 import ArtworkCard from "./ArtworkCard";
 
-export default function Main({}){
+export default function Home({}){
     const [gallery, setGallery] = useState([]);
     const [isSearchResult, setIsSearchResult] = useState();
     const [searchQuery, setSearchQuery] = useState("");
@@ -25,12 +25,12 @@ export default function Main({}){
             <section className="main__artworks-section">
                 {isSearchResult? 
                 <h1 className="main__artworks-section__title"> Resultados de la busqueda "{searchQuery}" </h1>:
-                <h1 className="main__artworks-section__title"> A continuación puedes ver una selección de obras destacadas</h1>
+                <h1 className="main__artworks-section__title"> Muestra de obras destacadas</h1>
                 }
                 <ul className="main__artworks-section__artworks-list">
-                    {gallery.map((artwork, index) => 
-                        <li className = "main__artworks-section__artworks-list__item" key = {index} >
-                            <ArtworkCard id = {artwork.id} title = {artwork.title } imageUrl = {artwork.image_url} description = {artwork.description}/>
+                    {gallery.map((artwork) => 
+                        <li className = "main__artworks-section__artworks-list__item" key = {artwork.id} >
+                            <ArtworkCard artwork={artwork}/>
                         </li>
                     )}
 

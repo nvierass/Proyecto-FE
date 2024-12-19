@@ -9,7 +9,7 @@ export default function Header({}){
                 </a>
                 <span className="header__image-wrapper__title">Taller de Front End - Software Libre</span>
             </section>
-            <section className="header__navbar">
+            <nav className="header__navbar">
                 <ul className="header__navbar__items">
                     <li className="header__navbar__items__item">
                         <a className="header__navbar__items__item__link" href = "#">Opción 1</a>
@@ -21,7 +21,7 @@ export default function Header({}){
                         <a className="header__navbar__items__item__link" href = "#">Opción 2</a>
                     </li>
                 </ul>
-            </section>  
+            </nav>  
         </header>
     )
 }
