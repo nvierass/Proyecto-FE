@@ -1,25 +1,24 @@
 const BASE_URL = "https://api.artic.edu/api/v1/artworks";
 
 function generateRandomOffset(){
-    return getRandomInt(0, 100000);
+    return getRandomInt(0, 200);
 } 
 
 function getRandomInt(minimum, maximum){
     return Math.floor(Math.random() * (maximum - minimum + 1) ) + minimum;
 }
 
-async function fetchArtworks(offset = 0, searchQuery = null){
-    let offsetParam = "offset=" + offset;
-    let fieldsParam = "&fields=id,title,image_id,description";
-    const response = await fetch(BASE_URL + "?" + offsetParam + fieldsParam);
+async function fetchArtworks(offset){
+    let offsetPageParam = "page=" + offset;
+    const response = await fetch(BASE_URL + "?" + offsetPageParam);
     const responseJson = await response.json();
     return {rawData: responseJson, data: responseJson.data, imageRepositoryInfo: responseJson.config}
 }
 
 async function fetchArtworksByQuery(searchQuery){
     let queryParam = "q="+searchQuery;
-    let fieldsParam = "&fields=id,title,image_id,description";
-    const response = await fetch(BASE_URL + "/search?" + queryParam + fieldsParam);
+    let fieldsParams = "&fields=id,title,description,image_id"
+    const response = await fetch(BASE_URL + "/search?" + queryParam + fieldsParams);
     const responseJson = await response.json();
     return {rawData: responseJson, data: responseJson.data, imageRepositoryInfo: responseJson.config}
 }

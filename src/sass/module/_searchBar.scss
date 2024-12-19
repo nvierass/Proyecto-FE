@@ -6,8 +6,8 @@
     padding: 20px;
     gap: 10px; 
     &__label {
-        font-size: $titleFontSize;
-        font-weight: $titleFontWeight;
+        font-size: $mainTitleFontSize;
+        font-weight: $mainTitleFontWeight;
     }
     &__input-wrapper {
         display: flex;

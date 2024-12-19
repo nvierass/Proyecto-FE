@@ -18,8 +18,5 @@
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "sass": "^1.83.0"
-  },
-  "eslintConfig": {
-    "extends": "./node_modules/standard/eslintrc.json"
   }
 }
