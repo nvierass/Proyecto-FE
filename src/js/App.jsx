@@ -1,12 +1,17 @@
 import Header from "./components/Header.jsx";
-import Main from "./components/Main";
-import Footer from "./components/Footer";
+import Home from "./components/Home.jsx";
+import Footer from "./components/Footer.jsx";
+import ArtworkDetail from "./components/ArtworkDetail.jsx";
+import { Routes, Route } from "react-router-dom";
 
 export default function App(){
     return (
         <>
         <Header />
-        <Main />        
+        <Routes>
+            <Route path = "/" element = {<Home />}/>              
+            <Route path = "artwork/:id" element = {<ArtworkDetail/>}/>
+        </Routes>
         <Footer/>
         </>
     )
