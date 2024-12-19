@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-export default function SearchBar({searchCallback}) {
+export default function SearchBar({setSearchQuery}) {
 
     const [inputText, setInputText] = useState("");
     const [informativeLabel, setInformativeLabel] = useState("")
@@ -12,7 +12,7 @@ export default function SearchBar({searchCallback}) {
         }
         else {
             setInformativeLabel("");
-            searchCallback(inputText);
+            setSearchQuery(inputText);
         }
     }
 

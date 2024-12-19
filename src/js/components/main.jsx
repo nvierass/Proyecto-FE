@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import SearchBar from "./searchBar";
+import SearchBar from "./SearchBar";
 import { getRandomArtworksGallery, getQueryArtworksGallery } from "../service/ArtworkApiTransactions";
 import ArtworkCard from "./ArtworkCard";
 
@@ -12,17 +12,16 @@ export default function Main({}){
         getRandomArtworksGallery().then(gallery => setGallery(gallery));
     },[])
 
-    const searchHandler = (query) => {
-        if(query){
+    useEffect(()=>{
+        if(searchQuery){
             setIsSearchResult(true);
-            setSearchQuery(query);
             getQueryArtworksGallery(searchQuery).then(gallery => setGallery(gallery));
         }
-    }
+    },[searchQuery])
 
     return (
         <main className="main">
-            <SearchBar searchCallback={searchHandler}/>
+            <SearchBar setSearchQuery={setSearchQuery}/>
             <section className="main__artworks-section">
                 {isSearchResult? 
                 <h1 className="main__artworks-section__title"> Resultados de la busqueda "{searchQuery}" </h1>:
