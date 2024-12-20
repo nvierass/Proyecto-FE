@@ -21,10 +21,13 @@ const ArtworkDetail = () => {
     <div className="artwork-detail">
       <h1>{artwork.title}</h1>
       <img src={imageUrl} alt={artwork.title} />
-      <p>{artwork.artist_title}</p>
-      <p>{artwork.date_display}</p>
-      <p>{artwork.medium_display}</p>
-      <Link to={"/"} className="card-button">Volver a la galería principal</Link>
+      <p><strong>Artista:</strong> {artwork.artist_title}</p>
+      <p><strong>Año:</strong> {artwork.date_display}</p>
+      <p><strong>Medio:</strong> {artwork.medium_display}</p>
+      <p><strong>Descripción:</strong> {artwork.description ? artwork.description : "La obra no posee una descripción"}</p>
+      <Link to={"/"} className="card-button">
+        <button className="back-button">Volver a la galería</button>
+      </Link>
     </div>
   );
 };
