@@ -9,10 +9,20 @@ function getRandomInt(minimum, maximum){
 }
 
 async function fetchArtworks(offset){
+    try {
     let offsetPageParam = "page=" + offset;
     const response = await fetch(BASE_URL + "?" + offsetPageParam);
-    const responseJson = await response.json();
-    return {rawData: responseJson, data: responseJson.data, imageRepositoryInfo: responseJson.config}
+    if (response.status === 200){
+        console.log("Solicitud correcta")
+        const responseJson = await response.json();
+        return {rawData: responseJson, data: responseJson.data, imageRepositoryInfo: responseJson.config};
+        }
+    }
+    catch ({error, message}){
+        console.error(error);
+        console.log(message);
+        return;
+    }
 }
 
 async function fetchArtworksByQuery(searchQuery){
