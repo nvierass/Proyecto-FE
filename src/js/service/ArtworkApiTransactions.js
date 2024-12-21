@@ -26,11 +26,20 @@ async function fetchArtworks(offset){
 }
 
 async function fetchArtworksByQuery(searchQuery){
-    let queryParam = "q="+searchQuery;
-    let fieldsParams = "&fields=id,title,description,image_id"
-    const response = await fetch(BASE_URL + "/search?" + queryParam + fieldsParams);
-    const responseJson = await response.json();
-    return {rawData: responseJson, data: responseJson.data, imageRepositoryInfo: responseJson.config}
+    try{
+        let queryParam = "q="+searchQuery;
+        let fieldsParams = "&fields=id,title,description,image_id"
+        const response = await fetch(BASE_URL + "/search?" + queryParam + fieldsParams);
+        if (response.status === 200){
+            const responseJson = await response.json();
+            return {rawData: responseJson, data: responseJson.data, imageRepositoryInfo: responseJson.config}
+        }
+    }
+    catch ({error, message}){
+        console.error(error);
+        console.log(message);
+        return;
+    }
 }
 
 export const getRandomArtworksGallery = async () => {
