@@ -27,7 +27,7 @@ export default function SearchBar({setSearchQuery}) {
             <div className = "search-bar__input-wrapper">
                 <input placeholder = "Van Gogh, Picasso, Dalí..." onChange={updateHandler}></input>
                 <button className = "search-bar__input-wrapper__button" type = "submit" onClick = {searchHandler}> 
-                    <img className="search-icon" width = "10px" height = "10px" src = "./src/assets/icons/magnifying-glass-solid.svg"  alt="lupa"/>
+                    <img className="search-icon" width = "10px" height = "10px" src = "https://raw.githubusercontent.com/nvierass/Proyecto-FE/82db55c01786240316114d52c0b53720ab7cf4ac/src/assets/icons/magnifying-glass-solid.svg"  alt="Ícono de lupa"/>
                 </button>
             </div>
             <span className = "search-bar__error-label"> {informativeLabel}</span>
